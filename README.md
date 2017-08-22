@@ -1,20 +1,20 @@
 Reliability
 =================
 
-### Computing network reliability with TdZdd library
+# Computing network reliability with TdZdd library
 
 This program computes network reliability for a given network.
 The source code is a subset of [graphillion_example in TdZdd library](https://github.com/kunisura/TdZdd/tree/master/apps/graphillion) written by Hiroaki Iwashita.
 
 ## Usage
 
-# Build
+### Build
 
 ```
 make
 ```
 
-# Run
+### Run
 
 ```
 ./reliability <graph_file> <terminal_file> <probability_file>
@@ -28,7 +28,7 @@ example
 
 ## File format
 
-# graph_file
+### graph_file
 
 Example:
 
@@ -44,7 +44,7 @@ and consists of two integers representing the vertex numbers of the endpoints.
 In the above example, there are four vertices 1, 2, 3 and 4, and four edges
 connecting 1 with 2, 1 with 3, 2 with 3 and 2 with 4.
 
-# terminal_file
+### terminal_file
 
 Example:
 
@@ -55,7 +55,7 @@ Example:
 The terminal_file specifies vertex numbers all of which must be connected.
 Each number is separated by a white space.
 
-# probability_file
+### probability_file
 
 ```
 0.9 0.8 0.7 0.6
