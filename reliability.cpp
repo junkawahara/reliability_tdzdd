@@ -42,7 +42,6 @@
 using namespace tdzdd;
 
 std::string options[][2] = { //
-        {"nola", "Do not use lookahead"}, //
         {"a", "Read <graph_file> as an adjacency list"}, //
         {"count", "Report the number of solutions"}, //
         {"graph", "Dump input graph to STDOUT in DOT format"}, //
@@ -217,7 +216,9 @@ int main(int argc, char *argv[]) {
             return 0;
         }
 
-        FrontierBasedSearch fbs(g, -1, false, !opt["nola"]);
+        // look ahead cannot be used for BDDs,
+        // so set the 4th argment to true
+        FrontierBasedSearch fbs(g, -1, false, false);
         DdStructure<2> dd;
 
         dd = DdStructure<2>(fbs);
