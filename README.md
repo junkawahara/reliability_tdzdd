@@ -1,10 +1,10 @@
 Reliability
 =================
 
-# Computing network reliability with TdZdd library
+# Program that computes network reliability using TdZdd library
 
 This program computes network reliability for a given network.
-The source code is a subset of [graphillion_example in TdZdd library](https://github.com/kunisura/TdZdd/tree/master/apps/graphillion) written by Hiroaki Iwashita.
+The source code provided here is a subset of [graphillion_example in TdZdd library](https://github.com/kunisura/TdZdd/tree/master/apps/graphillion) written by Dr. Hiroaki Iwashita.
 
 ## Usage
 
