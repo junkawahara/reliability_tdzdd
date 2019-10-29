@@ -73,7 +73,7 @@ public:
 
 void usage(char const* cmd) {
     std::cerr << "usage: " << cmd
-              << " [ <option>... ] [ <graph_file> [ <vertex_group_file> ]]\n";
+              << " [ <option>... ] [ <graph_file> [ <vertex_group_file> [ <prob_file> ]]]\n";
     std::cerr << "options\n";
     for (unsigned i = 0; i < sizeof(options) / sizeof(options[0]); ++i) {
         std::cerr << "  -" << options[i][0];
