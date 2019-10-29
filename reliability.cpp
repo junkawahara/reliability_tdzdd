@@ -49,6 +49,7 @@ std::string options[][2] = { //
         {"allrel", "Compute all terminal reliability (ignoring <vertex_group_file>)"}, //
         {"count", "Report the number of solutions"}, //
         {"graph", "Dump input graph to STDOUT in DOT format"}, //
+        {"reduce", "Reduce result BDD"}, //
         {"solutions <n>", "Dump at most <n> solutions to STDOUT in DOT format"}, //
         {"zdd", "Dump result ZDD to STDOUT in DOT format"}, //
         {"export", "Dump result ZDD to STDOUT"}}; //
@@ -224,6 +225,16 @@ int main(int argc, char *argv[]) {
                 << ", prob = "
                 << dd.evaluate(ProbEval(prob_list))
                 << "\n";
+
+        if (opt["reduce"]) {
+            dd.bddReduce();
+            mh << "\n#node = " << dd.size() << ", #solution = "
+               << std::setprecision(10)
+               << dd.evaluate(BddCardinality<double>(n))
+               << ", prob = "
+               << dd.evaluate(ProbEval(prob_list))
+               << "\n";
+        }
 
         if (opt["count"]) {
             MessageHandler mh;
