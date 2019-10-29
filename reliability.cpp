@@ -143,6 +143,9 @@ int main(int argc, char *argv[]) {
                 throw std::exception();
             }
         }
+        if (graphFileName.empty()) { // show usage
+            throw std::exception();
+        }
     }
     catch (std::exception& e) {
         usage(argv[0]);
@@ -163,23 +166,6 @@ int main(int argc, char *argv[]) {
             else {
                 g.readEdges(graphFileName);
             }
-        }
-        else {
-            g.addEdge("v1", "v2");
-            g.addEdge("v1", "v3");
-            g.addEdge("v1", "v4");
-            g.addEdge("v2", "v4");
-            g.addEdge("v2", "v5");
-            g.addEdge("v3", "v4");
-            g.addEdge("v3", "v6");
-            g.addEdge("v4", "v5");
-            g.addEdge("v4", "v6");
-            g.addEdge("v4", "v7");
-            g.addEdge("v5", "v7");
-            g.addEdge("v6", "v7");
-            g.setColor("v2", 0);
-            g.setColor("v3", 0);
-            g.update();
         }
 
         int const m = g.vertexSize();
