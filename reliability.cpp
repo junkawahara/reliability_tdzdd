@@ -209,7 +209,7 @@ int main(int argc, char *argv[]) {
         }
 
         // look ahead cannot be used for BDDs,
-        // so set the 4th argment to true
+        // so set the 4th argment to false
         FrontierBasedSearch fbs(g, -1, false, false);
         DdStructure<2> dd;
 
