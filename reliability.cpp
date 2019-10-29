@@ -43,6 +43,7 @@ using namespace tdzdd;
 
 std::string options[][2] = { //
         {"a", "Read <graph_file> as an adjacency list"}, //
+        {"allrel", "Compute all terminal reliability (ignoring <vertex_group_file>)"}, //
         {"count", "Report the number of solutions"}, //
         {"graph", "Dump input graph to STDOUT in DOT format"}, //
         {"solutions <n>", "Dump at most <n> solutions to STDOUT in DOT format"}, //
@@ -181,12 +182,17 @@ int main(int argc, char *argv[]) {
             g.update();
         }
 
-        if (!termFileName.empty()) {
-            g.readVertexGroups(termFileName);
-        }
-
         int const m = g.vertexSize();
         int const n = g.edgeSize();
+
+        if (!termFileName.empty() && !opt["allrel"]) {
+            g.readVertexGroups(termFileName);
+        } else { // Make all vertices terminals
+            for (int v = 1; v <= m; ++v) {
+                g.setColor(g.vertexName(v), 1);
+                g.update();
+            }
+        }
 
         if (!probFileName.empty()) {
             std::ifstream ifs(probFileName.c_str());
@@ -197,9 +203,9 @@ int main(int argc, char *argv[]) {
                 ++c;
             }
             if (prob_list.size() < g.edgeSize()) {
-                throw std::runtime_error("ERROR: please put probabilities!!!");
+                throw std::runtime_error("ERROR: please put probabilities!");
             }
-        } else {
+        } else { // All probabilities are 0.5.
             for (int i = 0; i < n; ++i) {
                 prob_list.push_back(0.5);
             }
@@ -209,7 +215,7 @@ int main(int argc, char *argv[]) {
            << g.numColor() << "\n";
 
         if (g.edgeSize() == 0)
-            throw std::runtime_error("ERROR: The graph is empty!!!");
+            throw std::runtime_error("ERROR: The graph is empty!");
 
         if (opt["graph"]) {
             g.dump(std::cout);
