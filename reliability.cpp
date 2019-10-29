@@ -36,8 +36,11 @@
 #include <tdzdd/DdSpecOp.hpp>
 #include <tdzdd/DdStructure.hpp>
 
-#include "FrontierBasedSearch.hpp"
-#include "Graph.hpp"
+#include <tdzdd/util/Graph.hpp>
+#include <tdzdd/spec/FrontierBasedSearch.hpp>
+
+//#include "FrontierBasedSearch.hpp"
+//#include "Graph.hpp"
 
 using namespace tdzdd;
 
