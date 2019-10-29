@@ -55,6 +55,10 @@ Example:
 The terminal_file specifies vertex numbers all of which must be connected.
 Each number is separated by a white space.
 
+If neither terminal_file nor probability_file arguments are specified,
+the terminal is set to be all the vertices, that is, all terminal reliability
+are computed.
+
 ### probability_file
 
 ```
@@ -64,6 +68,9 @@ Each number is separated by a white space.
 The probability_file specifies the probabilities of the availabilities of edges.
 The i-th real value indicates the probability that the i-th edge is available (not failure).
 Each value is separated by a white space.
+
+If the probability_file argument is not specifed, all the probabilities
+are set to be 0.5.
 
 ## Link
 
