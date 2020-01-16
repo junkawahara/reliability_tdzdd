@@ -180,8 +180,8 @@ int main(int argc, char *argv[]) {
         } else { // Make all vertices terminals
             for (int v = 1; v <= m; ++v) {
                 g.setColor(g.vertexName(v), 1);
-                g.update();
             }
+            g.update();
         }
 
         if (!probFileName.empty()) {
